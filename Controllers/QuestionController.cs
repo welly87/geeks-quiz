@@ -17,7 +17,7 @@ namespace GeeksId.Quiz.Controllers
 
         // POST api/values
         [HttpPost]
-        public void Post(NewQuestionCommand value)
+        public void Post([FromBody]NewQuestionCommand value)
         {
             var soal = new Question
             {

@@ -18,7 +18,7 @@ namespace GeeksId.Quiz.Controllers
         // POST api/values
         [HttpPost]
         [ActionName("newquiz")]
-        public Guid Post(NewQuizCommand value)
+        public Guid Post([FromBody]NewQuizCommand value)
         {
             var quiz = QuizGenerator.CreateNew();
 
@@ -27,7 +27,7 @@ namespace GeeksId.Quiz.Controllers
 
         [HttpPost]
         [ActionName("nextquest")]
-        public QuestionOnly Post(NextQuestionCommand next)
+        public QuestionOnly Post([FromBody]NextQuestionCommand next)
         {
             var quiz = QuizGenerator.GetQuiz(next.Id);
 
@@ -38,7 +38,7 @@ namespace GeeksId.Quiz.Controllers
 
         [HttpPost]
         [ActionName("answer")]
-        public bool Post(AnswerQuestionCommand next)
+        public bool Post([FromBody]AnswerQuestionCommand next)
         {
             var quiz = QuizGenerator.GetQuiz(next.Id);
 
